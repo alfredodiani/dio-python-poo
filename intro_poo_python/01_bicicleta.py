@@ -1,7 +1,3 @@
-from importlib.util import module_from_spec
-from lzma import MODE_NORMAL
-
-
 class Bicicleta:
     """
     Representa uma bicicleta com atributos como cor, modelo, ano e valor, e métodos para buzinar, parar e correr.
