@@ -1,8 +1,11 @@
 from datetime import datetime, UTC
+from sys import prefix
 from typing import Annotated
-from fastapi import FastAPI, status, Cookie, Response, Header
+from fastapi import FastAPI, status, Cookie, Response, Header, APIRouter
 from schemas.post import PostIn
 from views.post import PostOut
+
+router = APIRouter(prefix="/posts")
 
 fake_db = [
     {
@@ -30,12 +33,12 @@ fake_db = [
 #Classe para receber como parametro no POST
 
 
-@app.post('/posts', status_code=status.HTTP_201_CREATED, response_model=PostOut)
+@router.post('/', status_code=status.HTTP_201_CREATED, response_model=PostOut)
 def create_posts(post: PostIn):
     fake_db.append(post.model_dump())
     return post
 
-@app.get('/posts', response_model = list[PostOut])
+@router.get('/', response_model = list[PostOut])
 def read_posts(
     response: Response, 
     published: bool, 
@@ -49,7 +52,7 @@ def read_posts(
     print(f"User-agent: {user_agent}")
     return [post for post in fake_db[skip : skip + limit] if post['published'] is published]
 
-@app.get('/posts/{framework}', response_model=PostOut)
+@router.get('/{framework}', response_model=PostOut)
 def read_framework_posts(framework: str):
     return {
         "posts": [

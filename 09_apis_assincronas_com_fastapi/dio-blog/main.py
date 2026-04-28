@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
-
+from controllers import post
 
 app = FastAPI()
+app.include_router(post.router)
