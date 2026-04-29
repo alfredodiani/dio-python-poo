@@ -43,9 +43,26 @@ def excluir_registro(conexao, cursor, id):
     """, data)
     conexao.commit()
 
+def inserir_muitos(conexao, cursor, dados):
+    cursor.executemany("""
+        INSERT INTO clientes (nome, email)
+        VALUES (?,?);
+    """, dados)
+    conexao.commit()
+
 
 # inserir_registro(conexao, cursor, "James None", "jnone@email.com")
 # atualizar_registro(conexao, cursor, "John Doe", "johndoe@email.com", 1)
 # atualizar_registro(conexao, cursor, "Jane Doe", "janedoe@email.com", 2)
 
-excluir_registro(conexao, cursor, 2)
+# excluir_registro(conexao, cursor, 2)
+
+dados = [
+    ("JJ", "jj@email.com"),
+    ("KK", "kk@email.com"),
+    ("LL", "ll@email.com"),
+    ("MM", "mm@email.com"),
+]
+
+inserir_muitos(conexao, cursor, dados)
+
