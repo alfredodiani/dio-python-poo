@@ -35,8 +35,17 @@ def atualizar_registro(conexao, cursor, nome, email, id):
     """, data)
     conexao.commit()
 
+def excluir_registro(conexao, cursor, id):
+    data = (id,)
+    cursor.execute("""
+        DELETE FROM clientes
+        WHERE id = ?;
+    """, data)
+    conexao.commit()
 
-inserir_registro(conexao, cursor, "James None", "jnone@email.com")
-atualizar_registro(conexao, cursor, "John Doe", "johndoe@email.com", 1)
-atualizar_registro(conexao, cursor, "Jane Doe", "janedoe@email.com", 2)
 
+# inserir_registro(conexao, cursor, "James None", "jnone@email.com")
+# atualizar_registro(conexao, cursor, "John Doe", "johndoe@email.com", 1)
+# atualizar_registro(conexao, cursor, "Jane Doe", "janedoe@email.com", 2)
+
+excluir_registro(conexao, cursor, 2)
