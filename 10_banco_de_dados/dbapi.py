@@ -50,6 +50,15 @@ def inserir_muitos(conexao, cursor, dados):
     """, dados)
     conexao.commit()
 
+def recuperar_cliente(cursor, id):
+    cursor.execute("SELECT * FROM clientes WHERE id = ?;", (id,))
+    resultado = cursor.fetchone()
+    return resultado
+
+def listar_clientes(cursor):
+    cursor.execute("SELECT * FROM clientes;")
+    resultado = cursor.fetchall()
+    return resultado
 
 # inserir_registro(conexao, cursor, "James None", "jnone@email.com")
 # atualizar_registro(conexao, cursor, "John Doe", "johndoe@email.com", 1)
@@ -57,12 +66,16 @@ def inserir_muitos(conexao, cursor, dados):
 
 # excluir_registro(conexao, cursor, 2)
 
-dados = [
-    ("JJ", "jj@email.com"),
-    ("KK", "kk@email.com"),
-    ("LL", "ll@email.com"),
-    ("MM", "mm@email.com"),
-]
+# dados = [
+#     ("JJ", "jj@email.com"),
+#     ("KK", "kk@email.com"),
+#     ("LL", "ll@email.com"),
+#     ("MM", "mm@email.com"),
+# ]
+# inserir_muitos(conexao, cursor, dados)
 
-inserir_muitos(conexao, cursor, dados)
+cliente = recuperar_cliente(cursor, 1)
+print(cliente)
 
+clientes = listar_clientes(cursor)
+print(clientes)
