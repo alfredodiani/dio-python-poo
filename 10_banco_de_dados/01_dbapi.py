@@ -52,7 +52,6 @@ def inserir_muitos(conexao, cursor, dados):
     conexao.commit()
 
 def recuperar_cliente(cursor, id):
-    
     cursor.execute("SELECT * FROM clientes WHERE id = ?;", (id,))
     resultado = cursor.fetchone()
     return resultado
