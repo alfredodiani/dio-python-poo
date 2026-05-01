@@ -1,68 +1,26 @@
-from datetime import datetime, UTC
-from sys import prefix
-from typing import Annotated
-from fastapi import FastAPI, status, Cookie, Response, Header, APIRouter
+from fastapi import status, Response, APIRouter
 from schemas.post import PostIn
 from views.post import PostOut
 
 router = APIRouter(prefix="/posts")
 
-fake_db = [
-    {
-        "title": "Criando uma aplicação com FastAPI",
-        "date": datetime.now(UTC),
-        "published": True
-    },
-    {
-        "title": "Criando uma aplicação com Django",
-        "date": datetime.now(UTC),
-        "published": False
-    },
-    {
-        "title": "Criando uma aplicação com Flask",
-        "date": datetime.now(UTC),
-        "published": True
-    },
-    {
-        "title": "Criando uma aplicação com Starlett",
-        "date": datetime.now(UTC),
-        "published": True
-    }
-]
 
 #Classe para receber como parametro no POST
 
 
 @router.post('/', status_code=status.HTTP_201_CREATED, response_model=PostOut)
 def create_posts(post: PostIn):
-    fake_db.append(post.model_dump())
+    # fake_db.append(post.model_dump())
     return post
 
 @router.get('/', response_model = list[PostOut])
 def read_posts(
     response: Response, 
     published: bool, 
-    limit: int, skip: 
-    int = 0, ads_id: 
-    Annotated[str | None, Cookie()] = None, 
-    user_agent: Annotated[str|None, Header()] = None
+    limit: int, 
+    skip: int = 0
 ):
-    response.set_cookie(key='user', value="abd@gmail.com")              #cria um cookie
-    print(f"Cookie: {ads_id}")
-    print(f"User-agent: {user_agent}")
-    return [post for post in fake_db[skip : skip + limit] if post['published'] is published]
+    
+    return []
 
-@router.get('/{framework}', response_model=PostOut)
-def read_framework_posts(framework: str):
-    return {
-        "posts": [
-            {
-                "title": f"Criando uma aplicação com {framework}",
-                "date": datetime.now(UTC)
-            },
-            {
-                "title": f"Internaciopnalizando uma app {framework}",
-                "date": datetime.now(UTC)
-            }
-            ]
-    }
+
