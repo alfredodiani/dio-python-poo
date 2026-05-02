@@ -2,14 +2,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from controllers import post
-import sqlalchemy as sa
-import databases
+from database import database, metadata, engine
 
-DATABASE_URL = "sqlite:///./blog.db"
 
-database = databases.Database(DATABASE_URL)
-metadata = sa.MetaData()
-engine = sa.create_engine(DATABASE_URL, connect_args={'check_same_thread': False})
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
