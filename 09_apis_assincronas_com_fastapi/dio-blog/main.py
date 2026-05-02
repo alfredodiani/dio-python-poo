@@ -3,13 +3,12 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from controllers import post
 from database import database, metadata, engine
+from models.post import posts
 
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    from models.post import posts
-
     await database.connect()
     metadata.create_all(engine)
     yield
