@@ -1,8 +1,6 @@
 from fastapi import status, APIRouter
 from schemas.post import PostIn, PostUpdateIn
 from views.post import PostOut
-from models.post import posts
-from database import database
 from services.post import PostService
 
 service = PostService()
