@@ -1,8 +1,8 @@
 from fastapi import status, APIRouter, Depends
-from schemas.post import PostIn, PostUpdateIn
-from views.post import PostOut
-from services.post import PostService
-from security import login_required
+from ..schemas.post import PostIn, PostUpdateIn
+from ..services.post import PostService
+from ..security import login_required
+from ..views.post import PostOut
 
 service = PostService()
 

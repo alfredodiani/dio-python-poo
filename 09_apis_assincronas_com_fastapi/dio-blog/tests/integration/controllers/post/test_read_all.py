@@ -18,7 +18,7 @@ async def populate_posts(db):
 @pytest.mark.parametrize("published,total", [("on", 2), ("off", 1)])
 async def test_read_posts_by_status_success(client: AsyncClient, access_token: str, published: str, total: int):
     
-    params = {"publishe": published, "limit": 10}
+    params = {"published": published, "limit": 10}
     headers = {"Authorization": f"Bearer {access_token}"}
 
     response = await client.get("/posts/", params=params, headers=headers)
