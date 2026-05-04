@@ -11,7 +11,6 @@ os.environ.setdefault("DATABASE_URL", "sqlite:///tests.db")
 async def db(request):
     from src.database import database, engine, metadata
     from src.models.post import posts
-    database.DATABASE_URL = "sqlite:///./test.db"
 
     await database.connect()
     metadata.create_all(engine)
