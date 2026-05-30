@@ -4,9 +4,6 @@ Repositório de estudos em **Python (Back-end)** desenvolvido durante a trilha d
 
 > Objetivo: registrar a evolução no aprendizado de Python e boas práticas de Back-end, com exercícios, desafios e pequenos projetos.
 
-## Sobre a trilha
-A trilha/bootcamp **Luizalabs - Back-end com Python** aborda fundamentos e práticas para desenvolvimento Back-end com Python, passando por temas como **POO**, **APIs REST com FastAPI**, banco de dados e boas práticas de desenvolvimento. citeturn0search0turn0search1
-
 ## Conteúdos do repositório
 Este repositório contém, principalmente:
 
@@ -20,34 +17,62 @@ Este repositório contém, principalmente:
 - **Python** (100%)
 
 ## Como executar (geral)
-Como este repositório pode conter mais de um desafio/projeto, a forma de execução pode variar.
+Este repositório contém **múltiplos projetos/pastas**. Para os módulos que possuem `pyproject.toml`, a forma recomendada de rodar é usando **Poetry**.
 
-Sugestão de fluxo padrão:
+### Pré-requisitos
+- Python instalado (os projetos 09 e 11 estão configurados com `requires-python = ">=3.13"` no `pyproject.toml`)
+- Poetry instalado
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/alfredodiani/dio-python-poo.git
-   ```
-2. Acesse a pasta do desafio/projeto desejado.
-3. (Opcional) Crie e ative um ambiente virtual:
-   ```bash
-   python -m venv .venv
-   # Windows
-   .\.venv\Scripts\activate
-   # Linux/macOS
-   source .venv/bin/activate
-   ```
-4. Instale dependências (quando existir um `requirements.txt`):
-   ```bash
-   pip install -r requirements.txt
-   ```
-5. Execute o projeto conforme orientações do README interno (quando existir).
+> Dica: para garantir que o Poetry use a versão correta do Python:
+> 
+> ```bash
+> poetry env use 3.13
+> ```
 
-## Estrutura (exemplo)
-Alguns desafios podem ter README próprio dentro da pasta (por exemplo, desafios envolvendo API). Se existir, consulte-o para instruções específicas.
+### Rodando com Poetry (módulos 09 e 11)
 
-## Referências
-- DIO / trilha Luizalabs - Back-end com Python citeturn0search0turn0search1
+#### 09 — APIs Assíncronas com FastAPI (dio-blog)
+Pasta:
+
+```bash
+cd 09_apis_assincronas_com_fastapi/dio-blog
+```
+
+Instalar dependências (via `pyproject.toml`):
+
+```bash
+poetry install
+```
+
+Subir a API com Uvicorn:
+
+```bash
+poetry run uvicorn src.main:app --reload
+```
+
+#### 11 — Desafio API (API Bancária)
+Pasta:
+
+```bash
+cd 11_desafio_api
+```
+
+Instalar dependências (via `pyproject.toml`):
+
+```bash
+poetry install
+```
+
+Subir a API com Uvicorn:
+
+```bash
+poetry run uvicorn src.main:app --reload
+```
+
+> Observação: este desafio pode depender de variáveis de ambiente definidas em um arquivo `.env` (ver `src/config.py`).
+
+## READMEs internos
+Alguns desafios têm README próprio dentro da pasta (por exemplo, `11_desafio_api/README.md`). Se existir, consulte-o para instruções e requisitos específicos.
 
 ---
 
