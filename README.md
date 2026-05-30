@@ -2,6 +2,10 @@
 
 Repositório de estudos em **Python (Back-end)** desenvolvido durante a trilha da **DIO (Digital Innovation One)** em parceria com o **Luizalabs/Magalu**.
 
+**Certificado:** https://www.dio.me/certificate/I5RSILKW/
+
+**PDF do certificado:** https://hermes.dio.me/certificates/I5RSILKW.pdf
+
 > Objetivo: registrar a evolução no aprendizado de Python e boas práticas de Back-end, com exercícios, desafios e pequenos projetos.
 
 ## Conteúdos do repositório
