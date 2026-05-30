@@ -13,14 +13,28 @@ Este repositório contém, principalmente:
 
 > Observação: a estrutura pode evoluir conforme novos módulos e desafios forem concluídos.
 
-## Tecnologias e conceitos praticados
-Durante os estudos de Back-end, foram aprendidas e utilizadas as seguintes tecnologias e conceitos:
+## Tecnologias e práticas (Back-end)
+Durante os estudos, as seguintes tecnologias e práticas foram utilizadas (principalmente nos módulos **09** e **11**):
 
+### Tecnologias
 - **Python**
 - **FastAPI**
-- **APIs RESTful assíncronas** (endpoints async / I/O assíncrono)
-- **SQLite** (persistência de dados em projetos/exemplos)
-- **Programação Orientada a Objetos (POO)**: boas práticas e principais conceitos (classes/objetos, encapsulamento, herança, polimorfismo, abstração)
+- **Uvicorn** (ASGI server)
+- **SQLite**
+- **SQLAlchemy + Databases** (acesso a dados)
+- **Pydantic** (validação/serialização)
+- **Pydantic Settings** (configuração via variáveis de ambiente/`.env`)
+
+### Arquitetura e boas práticas
+- **APIs RESTful assíncronas** (endpoints `async`, I/O assíncrono)
+- Separação por camadas: **controllers/routers**, **services**, **schemas** e **models**
+- **Validações** e regras de negócio (ex.: validação de valores e saldo)
+
+### Segurança
+- **Autenticação JWT** (JSON Web Token) e proteção de rotas via `HTTPBearer`
+
+### Qualidade
+- **Testes automatizados** (ex.: `pytest`, `pytest-asyncio`, `httpx`, `pytest-mock`)
 
 ## Como executar (geral)
 Este repositório contém **múltiplos projetos/pastas**. Para os módulos que possuem `pyproject.toml`, a forma recomendada de rodar é usando **Poetry**.
@@ -30,7 +44,7 @@ Este repositório contém **múltiplos projetos/pastas**. Para os módulos que p
 - Poetry instalado
 
 > Dica: para garantir que o Poetry use a versão correta do Python:
-> 
+>
 > ```bash
 > poetry env use 3.13
 > ```
@@ -76,6 +90,13 @@ poetry run uvicorn src.main:app --reload
 ```
 
 > Observação: este desafio pode depender de variáveis de ambiente definidas em um arquivo `.env` (ver `src/config.py`).
+
+### Testes (quando disponíveis)
+Dentro do projeto/pasta que tiver testes:
+
+```bash
+poetry run pytest
+```
 
 ## READMEs internos
 Alguns desafios têm README próprio dentro da pasta (por exemplo, `11_desafio_api/README.md`). Se existir, consulte-o para instruções e requisitos específicos.
