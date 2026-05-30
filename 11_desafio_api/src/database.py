@@ -1,8 +1,15 @@
-import sqlalchemy as sa
 import databases
+import sqlalchemy as sa
 
-DATABASE_URL = "sqlite:///./banco.db"
+from src.config import settings
 
-database = databases.Database(DATABASE_URL)
+database = databases.Database(settings.database_url)
 metadata = sa.MetaData()
-engine = sa.create_engine(DATABASE_URL, connect_args={"check_same_thread": False}, echo=True)
+
+if settings.environment == "production":
+    engine = sa.create_engine(settings.database_url)
+else:
+    engine = sa.create_engine(settings.database_url, 
+                              connect_args={
+                                  "check_same_thread": False
+                              })
