@@ -13,8 +13,14 @@ Este repositório contém, principalmente:
 
 > Observação: a estrutura pode evoluir conforme novos módulos e desafios forem concluídos.
 
-## Tecnologias
-- **Python** (100%)
+## Tecnologias e conceitos praticados
+Durante os estudos de Back-end, foram aprendidas e utilizadas as seguintes tecnologias e conceitos:
+
+- **Python**
+- **FastAPI**
+- **APIs RESTful assíncronas** (endpoints async / I/O assíncrono)
+- **SQLite** (persistência de dados em projetos/exemplos)
+- **Programação Orientada a Objetos (POO)**: boas práticas e principais conceitos (classes/objetos, encapsulamento, herança, polimorfismo, abstração)
 
 ## Como executar (geral)
 Este repositório contém **múltiplos projetos/pastas**. Para os módulos que possuem `pyproject.toml`, a forma recomendada de rodar é usando **Poetry**.
